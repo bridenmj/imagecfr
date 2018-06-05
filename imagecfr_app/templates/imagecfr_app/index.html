@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{% load staticfiles%}
+
+{% block sidebar %}
+
+    <div class="sidebar-header">
+      <h4 id ="menu_title">imageCFR</h4>
+    </div>
+
+  <!--  <div class = "dropdown-divider" id="divider"></div> -->
+    <hr>
+     <ul class="sidebar-nav">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="" value="Classify">
+      </form>
+     </ul>
+
+{% endblock %}
+
+{%block page%}
+
+<div id="title">
+  <h1 class="display-1">imageCFR</h1>
+  <h5>An Image Classifier</h5>
+</div>
+
+<div class="jumbotron">
+<img src="{%static "temp_images/kitten.jpg"%}" alt="Image not found."
+          id="index_default_img">
+
+</div>
+
+
+{% endblock %}

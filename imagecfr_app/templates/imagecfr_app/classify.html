@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block sidebar %}
+<script type="text/javascript" src="{%static 'js/master.js'%}"></script>
+    <div type="text/javaScript" class="sidebar-header">
+      <h4 id ="menu_title">imageCFR</h4>
+    </div>
+
+  <!--  <div class = "dropdown-divider" id="divider"></div> -->
+    <hr>
+     <ul class="sidebar-nav">
+       <div class="class_list">
+        <h5><u>Classification:</u></h5>
+        {% for class in classifications%}
+          {{class}}
+        {% endfor %}
+        </div>
+      </ul>
+
+{% endblock %}
+
+{%block page%}
+
+<div id="title">
+  <h1 class="display-1">imageCFR</h1>
+  <h5>An Image Classifier</h5>
+</div>
+
+<div class="jumbotron">
+<img src="{{image_url}}"  class="img-fluid" alt="image not found">
+<h2>{{image_name}}</h2>
+</div>
+
+{% endblock %}
