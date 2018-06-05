@@ -43,7 +43,8 @@ $(window).on('load', function () {
     $.ajax({
       type: 'POST',
       dataType: "html",
-      url:'http://127.0.0.1:8000/imagecfr_app/delete/',
+      //BAD PRACTICE HERE, TRY TO FIGURE OUT WHY THE TEMPLATE TAG DOES NOT WORK
+      url:'{url 'delete_pic'}',
       success: function(){
         console.log("delete successful");
       },
