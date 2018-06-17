@@ -35,9 +35,6 @@ def display_data_view(request):
         request_id = request.session.get('request_id')
         #retrieve the instanse of uploadimage that pertains to request_id
         instance = get_object_or_404(ImageUpload,id=request_id)
-
-        #get absolute path to instance
-        print(instance.upload_pic.path)
         #run mxnet model on instance
         classifications = predict(instance.upload_pic.path)
         print(type(classifications))
@@ -60,7 +57,6 @@ def display_data_view(request):
 def delete_pic(request):
     #get the id from the last form uploaded by user
     request_id = request.session.get('request_id')
-    print('id:%d' % (request_id))
     #retrieve the instanse of uploadimage that pertains to request_id
     instance = get_object_or_404(ImageUpload,id=request_id)
     #delete instance and record
